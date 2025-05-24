@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <title>Israel's Blog</title>
+  </head>
+  <body>
+    <header>
+      <h1>ISRAEL'S BLOG</h1>
+      <a href="/" class="back-btn">Back</a>
+    </header>
+    <div class="container">
+      <div class="blog-post">
+        <h1>{{posts.title}}</h1>
+        <p class="meta">Posted on: <span>{{posts.created_at}}</span></p>
+        <p>{{posts.content}}</p>
+      </div>
+    </div>
+  </body>
+</html>

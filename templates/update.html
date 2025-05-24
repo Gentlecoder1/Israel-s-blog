@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Post</title>
+    <link rel="stylesheet" href="{% static 'design.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1 style="color: black">Update Post</h1>
+      <a href="/" class="back-btn" style="color: white">Back</a>
+    </header>
+
+    {% if error %}
+    <p style="color: red">{{ error }}</p>
+    {% endif %}
+
+    <div class="container">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        <input
+          type="text"
+          name="title"
+          value="{{ post.title }}"
+          placeholder="Title"
+        /><br /><br />
+        <label for="image">Image:</label>
+        <input
+          type="file"
+          name="photo"
+          accept="image/*"
+          placeholder="Image"
+        /><br /><br />
+        <label for="content">Content:</label>
+        <textarea name="content" rows="20" cols="70" placeholder="Content">
+{{ post.content }}</textarea
+        ><br /><br />
+        <button type="submit">Update Post</button>
+      </form>
+    </div>
+  </body>
+</html>
